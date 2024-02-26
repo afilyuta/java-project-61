@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import static hexlet.code.Cli.greetingUser;
 
+import static hexlet.code.Even.even;
+
 public class App {
 
     public static void main(String[] args) {
@@ -12,15 +14,17 @@ public class App {
         System.out.println(
                 "Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
+                + "2 - Even\n"
                 + "0 - Exit"
         );
 
+        System.out.print("Your choice: ");
         int gameNumber = scanner.nextInt();
-        System.out.println("Your choice: " + gameNumber + "\n");
 
         if (gameNumber == 1) {
-            System.out.println("Welcome to the Brain Games!");
             greetingUser();
+        } else if (gameNumber == 2) {
+            even();
         }
     }
 }
