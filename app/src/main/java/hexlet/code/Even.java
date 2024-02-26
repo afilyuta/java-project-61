@@ -29,7 +29,7 @@ public class Even {
                 counter++;
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.", answer, rightAnswer);
-                System.out.printf("Let's try again, %s", userName);
+                System.out.printf("Let's try again, %s\n", userName);
                 break;
             }
         }
