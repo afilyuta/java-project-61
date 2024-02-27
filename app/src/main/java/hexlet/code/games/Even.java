@@ -1,43 +1,32 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import static hexlet.code.Engine.getGreetingAndRules;
 
-import static hexlet.code.Cli.cli;
-import static hexlet.code.Cli.greetingUser;
+import static hexlet.code.Engine.runGame;
 
 public class Even {
 
     public static void even() {
-        greetingUser();
+        getGreetingAndRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        runGame(getExpressionsAndRightAnswers());
+    }
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static String[][] getExpressionsAndRightAnswers() {
+        String[][] expressionsAndRightAnswers = new String[3][2];
+        int length = expressionsAndRightAnswers.length;
 
-        Scanner scanner = new Scanner(System.in);
-        String userName = cli.userName;
-        int counter = 0;
+        for (int i = 0; i < length; i++) {
+            String expression = "" + (int) (Math.random() * 100);
+            String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
+            String[] expressionAndRightAnswer = {expression, rightAnswer};
 
-        while (counter < 3) {
-            int randomNumber = (int) (Math.random() * 1000);
-            String rightAnswer = randomNumber % 2 == 0 ? "yes" : "no";
-
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            String answer = scanner.next();
-
-            if (answer.equalsIgnoreCase(rightAnswer)) {
-                System.out.println("Correct!");
-                counter++;
-            } else {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.", answer, rightAnswer);
-                System.out.printf("Let's try again, %s\n", userName);
-                break;
-            }
+            expressionsAndRightAnswers[i] = expressionAndRightAnswer;
         }
 
-        if (counter == 3) {
-            System.out.printf("Congratulations, %s!\n", userName);
-        }
+        return expressionsAndRightAnswers;
+    }
 
-        scanner.close();
+    public static void main(String[] args) {
+        even();
     }
 }
