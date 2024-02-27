@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Cli {
 
-    static Cli cli = new Cli();
+    public static Cli cli = new Cli();
     public String userName;
 
     public static void greetingUser() {
