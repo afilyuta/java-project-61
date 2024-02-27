@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import static hexlet.code.Engine.getGreetingAndRules;
-
 import static hexlet.code.Engine.runGame;
 
 public class Even {
@@ -24,9 +23,5 @@ public class Even {
         }
 
         return expressionsAndRightAnswers;
-    }
-
-    public static void main(String[] args) {
-        even();
     }
 }
