@@ -7,7 +7,8 @@ public class Progression {
 
     public static void progression() {
         getGreetingAndRules("What number is missing in the progression?");
-        runGame(getExpressionsAndRightAnswers());
+        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
+        runGame(expressionsAndRightAnswers);
     }
 
     public static String[][] getExpressionsAndRightAnswers() {
