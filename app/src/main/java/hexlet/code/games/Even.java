@@ -15,7 +15,10 @@ public class Even {
         int length = expressionsAndRightAnswers.length;
 
         for (int i = 0; i < length; i++) {
-            String expression = "" + (int) (Math.random() * 100);
+            int a = (int) (Math.random() * 100);
+            a = a != 0 ? a : a + 1;
+            
+            String expression = "" + a;
             String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
             String[] expressionAndRightAnswer = {expression, rightAnswer};
 
