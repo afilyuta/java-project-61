@@ -7,7 +7,8 @@ public class Even {
 
     public static void even() {
         getGreetingAndRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        runGame(getExpressionsAndRightAnswers());
+        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
+        runGame(expressionsAndRightAnswers);
     }
 
     public static String[][] getExpressionsAndRightAnswers() {
