@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.getGreetingAndRules;
 import static hexlet.code.Engine.runGame;
+import static hexlet.code.Engine.getSingleDigitNumber;
+import static hexlet.code.Engine.getTwoDigitNumber;
 
 public class Progression {
 
@@ -16,9 +18,9 @@ public class Progression {
         int length = expressionsAndRightAnswers.length;
 
         for (int i = 0; i < length; i++) {
-            int numberToSkip = (int) (Math.random() * 10 + 1);
-            int initialValue = (int) (Math.random() * 100 + 1);
-            int addNumber = (int) (Math.random() * 10 + 1);
+            int numberToSkip = getSingleDigitNumber();
+            int initialValue = getTwoDigitNumber();
+            int addNumber = getSingleDigitNumber();
 
             int currentNumber = initialValue;
             String rightAnswer = "";
