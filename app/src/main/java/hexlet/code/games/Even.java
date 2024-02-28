@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.getGreetingAndRules;
 import static hexlet.code.Engine.runGame;
+import static hexlet.code.Engine.getSingleDigitNumber;
 
 public class Even {
 
@@ -16,7 +17,7 @@ public class Even {
         int length = expressionsAndRightAnswers.length;
 
         for (int i = 0; i < length; i++) {
-            int a = (int) (Math.random() * 100 + 1);
+            int a = getSingleDigitNumber();
 
             String expression = "" + a;
             String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
