@@ -8,6 +8,8 @@ import static hexlet.code.games.Even.even;
 
 import static hexlet.code.games.Calc.calc;
 
+import static hexlet.code.games.GCD.gsd;
+
 
 public class App {
 
@@ -19,6 +21,7 @@ public class App {
                 + "1 - Greet\n"
                 + "2 - Even\n"
                 + "3 - Calc\n"
+                + "4 - GCD\n"
                 + "0 - Exit"
         );
 
@@ -35,6 +38,8 @@ public class App {
             case 3:
                 calc();
                 break;
+            case 4:
+                gsd();
             default:
                 System.exit(0);
         }
