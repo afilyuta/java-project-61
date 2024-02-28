@@ -6,7 +6,8 @@ import static hexlet.code.Engine.runGame;
 public class GCD {
     public static void gsd() {
         getGreetingAndRules("Find the greatest common divisor of given numbers.");
-        runGame(getExpressionsAndRightAnswers());
+        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
+        runGame(expressionsAndRightAnswers);
     }
 
     public static String[][] getExpressionsAndRightAnswers() {
