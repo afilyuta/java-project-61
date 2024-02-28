@@ -15,10 +15,8 @@ public class Calc {
         int length = expressionsAndRightAnswers.length;
 
         for (int i = 0; i < length; i++) {
-            int a = (int) (Math.random() * 100);
-            a = a != 0 ? a : a + 1;
-            int b = (int) (Math.random() * 10);
-            b = b != 0 ? b : b + 1;
+            int a = (int) (Math.random() * 100 + 1);
+            int b = (int) (Math.random() * 10 + 1);
             int c = (int) (Math.random() * 10);
 
             String sign = switch (c) {
