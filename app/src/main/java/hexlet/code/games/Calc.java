@@ -7,7 +7,8 @@ public class Calc {
 
     public static void calc() {
         getGreetingAndRules("What is the result of the expression?");
-        runGame(getExpressionsAndRightAnswers());
+        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
+        runGame(expressionsAndRightAnswers);
     }
 
     public static String[][] getExpressionsAndRightAnswers() {
