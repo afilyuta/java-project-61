@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.getGreetingAndRules;
 import static hexlet.code.Engine.runGame;
+import static hexlet.code.Engine.getTwoDigitNumber;
 
 public class GCD {
     public static void gsd() {
@@ -15,8 +16,8 @@ public class GCD {
         int length = expressionsAndRightAnswers.length;
 
         for (int i = 0; i < length; i++) {
-            int a = (int) (Math.random() * 100 + 1);
-            int b = (int) (Math.random() * 100 + 1);
+            int a = getTwoDigitNumber();
+            int b = getTwoDigitNumber();
             int c = a;
             int d = b;
 
