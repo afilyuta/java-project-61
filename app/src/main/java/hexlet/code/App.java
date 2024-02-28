@@ -8,9 +8,6 @@ import static hexlet.code.games.Calc.calc;
 import static hexlet.code.games.GCD.gsd;
 import static hexlet.code.games.Progression.progression;
 
-
-
-
 public class App {
 
     public static void main(String[] args) {
