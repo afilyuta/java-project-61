@@ -24,7 +24,7 @@ public class Progression {
             String rightAnswer = "";
             StringBuilder progression = new StringBuilder(initialValue);
 
-            for (int j = 1; j <= 10; j++) {
+            for (int j = 1; j < 10; j++) {
                 currentNumber += addNumber;
 
                 if (j != numberToSkip) {
