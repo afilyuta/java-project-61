@@ -3,12 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Cli.greetingUser;
-
 import static hexlet.code.games.Even.even;
-
 import static hexlet.code.games.Calc.calc;
-
 import static hexlet.code.games.GCD.gsd;
+import static hexlet.code.games.Progression.progression;
+
+
 
 
 public class App {
@@ -22,6 +22,7 @@ public class App {
                 + "2 - Even\n"
                 + "3 - Calc\n"
                 + "4 - GCD\n"
+                + "5 - Progression\n"
                 + "0 - Exit"
         );
 
@@ -40,6 +41,10 @@ public class App {
                 break;
             case 4:
                 gsd();
+                break;
+            case 5:
+                progression();
+                break;
             default:
                 System.exit(0);
         }
