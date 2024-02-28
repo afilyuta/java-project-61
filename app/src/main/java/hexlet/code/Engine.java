@@ -6,6 +6,11 @@ import static hexlet.code.Cli.greetingUser;
 
 public class Engine {
 
+    public static void getGreetingAndRules(String rules) {
+        greetingUser();
+        System.out.println(rules);
+    }
+
     public static void runGame(String[][] expressionsAndRightAnswers) {
         Scanner scanner = new Scanner(System.in);
 
@@ -29,8 +34,11 @@ public class Engine {
         System.out.printf("Congratulations, %s!\n", Cli.userName);
     }
 
-    public static void getGreetingAndRules(String rules) {
-        greetingUser();
-        System.out.println(rules);
+    public static int getSingleDigitNumber() {
+        return (int) (Math.random() * 10 + 1);
+    }
+
+    public static int getTwoDigitNumber() {
+        return (int) (Math.random() * 100 + 1);
     }
 }
