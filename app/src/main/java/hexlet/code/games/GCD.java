@@ -7,35 +7,43 @@ import static hexlet.code.Engine.getTwoDigitNumber;
 public class GCD {
     public static void gsd() {
         getGreetingAndRules("Find the greatest common divisor of given numbers.");
-        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
-        runGame(expressionsAndRightAnswers);
+
+        String[][] gamePack = getGamePack();
+        runGame(gamePack);
     }
 
-    public static String[][] getExpressionsAndRightAnswers() {
-        String[][] expressionsAndRightAnswers = new String[3][2];
-        int length = expressionsAndRightAnswers.length;
+    public static String[] getRoundPack() {
+        int a = getTwoDigitNumber();
+        int b = getTwoDigitNumber();
+        int c = a;
+        int d = b;
 
-        for (int i = 0; i < length; i++) {
-            int a = getTwoDigitNumber();
-            int b = getTwoDigitNumber();
-            int c = a;
-            int d = b;
-
-            while (d != 0) {
-                int temp = c % d;
-                c = d;
-                d = temp;
-            }
-
-            int gsd = c + d;
-
-            String expression = a + " " + b;
-            String rightAnswer = "" + gsd;
-            String[] expressionAndRightAnswer = {expression, rightAnswer};
-
-            expressionsAndRightAnswers[i] = expressionAndRightAnswer;
+        while (d != 0) {
+            int temp = c % d;
+            c = d;
+            d = temp;
         }
 
-        return expressionsAndRightAnswers;
+        int gsd = c + d;
+
+        String expression = a + " " + b;
+        String rightAnswer = "" + gsd;
+
+        return new String[]{expression, rightAnswer};
+    }
+
+    public static String[][] getGamePack() {
+        String[][] gamePack = new String[3][2];
+        int length = gamePack.length;
+
+        for (int i = 0; i < length; i++) {
+            gamePack[i] = getRoundPack();
+        }
+
+        return gamePack;
+    }
+
+    public static void main(String[] args) {
+        gsd();
     }
 }
