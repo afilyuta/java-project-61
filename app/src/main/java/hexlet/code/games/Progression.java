@@ -14,7 +14,7 @@ public class Progression {
         runGame(gamePack);
     }
 
-    private static String[] getRoundPack() {
+    public static String[] getRoundPack() {
         int numberToSkip = getSingleDigitNumber();
         int initialValue = getTwoDigitNumber();
         int addNumber = getSingleDigitNumber();
