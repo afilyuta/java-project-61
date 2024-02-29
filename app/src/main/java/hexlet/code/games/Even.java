@@ -2,30 +2,34 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.getGreetingAndRules;
 import static hexlet.code.Engine.runGame;
-import static hexlet.code.Engine.getSingleDigitNumber;
+import static hexlet.code.Engine.getTwoDigitNumber;
 
 public class Even {
 
     public static void even() {
         getGreetingAndRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
-        runGame(expressionsAndRightAnswers);
+
+        String[][] gamePack = getGamePack();
+        runGame(gamePack);
     }
 
-    public static String[][] getExpressionsAndRightAnswers() {
-        String[][] expressionsAndRightAnswers = new String[3][2];
-        int length = expressionsAndRightAnswers.length;
+    public static String[] getRoundPack() {
+        int a = getTwoDigitNumber();
+
+        String expression = "" + a;
+        String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
+
+        return new String[]{expression, rightAnswer};
+    }
+
+    public static String[][] getGamePack() {
+        String[][] gamePack = new String[3][2];
+        int length = gamePack.length;
 
         for (int i = 0; i < length; i++) {
-            int a = getSingleDigitNumber();
-
-            String expression = "" + a;
-            String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
-            String[] expressionAndRightAnswer = {expression, rightAnswer};
-
-            expressionsAndRightAnswers[i] = expressionAndRightAnswer;
+            gamePack[i] = getRoundPack();
         }
 
-        return expressionsAndRightAnswers;
+        return gamePack;
     }
 }
