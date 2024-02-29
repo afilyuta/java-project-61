@@ -50,8 +50,4 @@ public class Progression {
 
         return gamePack;
     }
-
-    public static void main(String[] args) {
-        progression();
-    }
 }
