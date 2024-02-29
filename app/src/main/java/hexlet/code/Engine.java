@@ -11,10 +11,10 @@ public class Engine {
         System.out.println(rules);
     }
 
-    public static void runGame(String[][] expressionsAndRightAnswers) {
+    public static void runGame(String[][] gamePack) {
         Scanner scanner = new Scanner(System.in);
 
-        for (String[] part : expressionsAndRightAnswers) {
+        for (String[] part : gamePack) {
             String expression = part[0];
             String rightAnswer = part[1];
 
