@@ -9,41 +9,49 @@ public class Progression {
 
     public static void progression() {
         getGreetingAndRules("What number is missing in the progression?");
-        String[][] expressionsAndRightAnswers = getExpressionsAndRightAnswers();
-        runGame(expressionsAndRightAnswers);
+
+        String[][] gamePack = getGamePack();
+        runGame(gamePack);
     }
 
-    public static String[][] getExpressionsAndRightAnswers() {
-        String[][] expressionsAndRightAnswers = new String[3][2];
-        int length = expressionsAndRightAnswers.length;
+    private static String[] getRoundPack() {
+        int numberToSkip = getSingleDigitNumber();
+        int initialValue = getTwoDigitNumber();
+        int addNumber = getSingleDigitNumber();
+        int currentNumber = initialValue;
 
-        for (int i = 0; i < length; i++) {
-            int numberToSkip = getSingleDigitNumber();
-            int initialValue = getTwoDigitNumber();
-            int addNumber = getSingleDigitNumber();
+        String rightAnswer = "";
+        StringBuilder progression = new StringBuilder(initialValue);
 
-            int currentNumber = initialValue;
-            String rightAnswer = "";
-            StringBuilder progression = new StringBuilder(initialValue);
+        for (int j = 1; j < 10; j++) {
+            currentNumber += addNumber;
 
-            for (int j = 1; j < 10; j++) {
-                currentNumber += addNumber;
-
-                if (j != numberToSkip) {
-                    progression.append(" ");
-                    progression.append(currentNumber);
-                } else {
-                    progression.append(" ..");
-                    rightAnswer = "" + currentNumber;
-                }
+            if (j != numberToSkip) {
+                progression.append(" ");
+                progression.append(currentNumber);
+            } else {
+                progression.append(" ..");
+                rightAnswer = "" + currentNumber;
             }
-
-            String expression = progression.toString();
-
-            String[] expressionAndRightAnswer = {expression, rightAnswer};
-            expressionsAndRightAnswers[i] = expressionAndRightAnswer;
         }
 
-        return expressionsAndRightAnswers;
+        String expression = progression.toString();
+
+        return new String[]{expression, rightAnswer};
+    }
+
+    public static String[][] getGamePack() {
+        String[][] gamePack = new String[3][2];
+        int length = gamePack.length;
+
+        for (int i = 0; i < length; i++) {
+            gamePack[i] = getRoundPack();
+        }
+
+        return gamePack;
+    }
+
+    public static void main(String[] args) {
+        progression();
     }
 }
