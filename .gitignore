@@ -21,7 +21,6 @@ out/
 **/logs/
 
 bin
-.project*
 .classpath
 
 ### Eclipse ###
