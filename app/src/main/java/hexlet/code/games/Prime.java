@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.getGreetingAndRules;
+import static hexlet.code.Engine.runGame;
+import static hexlet.code.Engine.getTwoDigitNumber;
 
 public class Prime {
     public static void prime() {
