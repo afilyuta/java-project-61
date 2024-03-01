@@ -7,6 +7,7 @@ import static hexlet.code.games.Even.even;
 import static hexlet.code.games.Calc.calc;
 import static hexlet.code.games.GCD.gsd;
 import static hexlet.code.games.Progression.progression;
+import static hexlet.code.games.Prime.prime;
 
 public class App {
 
@@ -20,6 +21,7 @@ public class App {
                 + "3 - Calc\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
+                + "6 - Prime\n"
                 + "0 - Exit"
         );
 
@@ -41,6 +43,9 @@ public class App {
                 break;
             case 5:
                 progression();
+                break;
+            case 6:
+                prime();
                 break;
             default:
                 System.exit(0);
