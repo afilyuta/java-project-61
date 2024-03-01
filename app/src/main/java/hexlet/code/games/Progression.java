@@ -35,7 +35,7 @@ public class Progression {
             }
         }
 
-        String expression = progression.toString();
+        String expression = progression.toString().trim();
 
         return new String[]{expression, rightAnswer};
     }
