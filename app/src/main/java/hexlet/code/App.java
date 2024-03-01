@@ -28,10 +28,6 @@ public class App {
         System.out.print("Your choice: ");
         int gameNumber = scanner.nextInt();
 
-        getGameMenu(gameNumber);
-    }
-
-    private static void getGameMenu(int gameNumber) {
         switch (gameNumber) {
             case 1:
                 greetingUser();
