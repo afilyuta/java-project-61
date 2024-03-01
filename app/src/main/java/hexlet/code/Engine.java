@@ -26,7 +26,7 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.", answer, rightAnswer);
-                System.out.printf("Let's try again, %s\n !", Cli.userName);
+                System.out.printf("Let's try again, %s!\n", Cli.userName);
                 System.exit(0);
             }
         }
