@@ -17,18 +17,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-**/logs/
-
-bin
-.project*
-.classpath
-
->>>>>>> parent of 9b948bd (Update .gitignore)
-=======
->>>>>>> parent of a010376 (Update .gitignore)
 ### Eclipse ###
 .apt_generated
 .classpath
