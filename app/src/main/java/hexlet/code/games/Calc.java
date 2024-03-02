@@ -18,17 +18,27 @@ public class Calc {
         int b = getSingleDigitNumber();
         int c = getSingleDigitNumber();
 
-        String sign = switch (c) {
-            case 1, 4, 7 -> "+";
-            case 2, 5, 8 -> "-";
-            default -> "*";
-        };
+        String sign;
+        int intRightAnswer;
 
-        int intRightAnswer = switch (c) {
-            case 1, 4, 7 -> a + b; // +
-            case 2, 5, 8 -> a - b; // -
-            default -> a * b;
-        };
+        int addCaseOne = 1;
+        int addCaseTwo = 4;
+        int addCaseThree = 7;
+
+        int subCaseOne = 2;
+        int subCaseTwo = 5;
+        int subCaseThree = 8;
+
+        if (c == addCaseOne || c == addCaseTwo || c == addCaseThree) {
+            sign = "+";
+            intRightAnswer = a + b;
+        } else if (c == subCaseOne || c == subCaseTwo || c == subCaseThree) {
+            sign = "-";
+            intRightAnswer = a - b;
+        } else {
+            sign = "*";
+            intRightAnswer = a * b;
+        }
 
         String expression = a + " " + sign + " " + b;
         String rightAnswer = "" + intRightAnswer;
