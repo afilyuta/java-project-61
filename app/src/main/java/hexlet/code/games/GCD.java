@@ -5,7 +5,7 @@ import static hexlet.code.Engine.runGame;
 import static hexlet.code.Engine.getTwoDigitNumber;
 
 public class GCD {
-    public static void gsd() {
+    public static void gcd() {
         getGreetingAndRules("Find the greatest common divisor of given numbers.");
 
         String[][] gamePack = getGamePack();
@@ -33,7 +33,10 @@ public class GCD {
     }
 
     public static String[][] getGamePack() {
-        String[][] gamePack = new String[3][2];
+        int countOfRounds = 3;
+        int countOfVariables = 2;
+
+        String[][] gamePack = new String[countOfRounds][countOfVariables];
         int length = gamePack.length;
 
         for (int i = 0; i < length; i++) {
@@ -41,9 +44,5 @@ public class GCD {
         }
 
         return gamePack;
-    }
-
-    public static void main(String[] args) {
-        gsd();
     }
 }
