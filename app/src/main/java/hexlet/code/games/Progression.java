@@ -16,7 +16,9 @@ public class Progression {
 
     public static String[] getRoundPack() {
         int numberToSkip = getSingleDigitNumber();
-        numberToSkip = numberToSkip == 10 ? 9 : numberToSkip;
+        int invalidValue = 10;
+        numberToSkip = numberToSkip == invalidValue ? invalidValue - 1 : numberToSkip;
+
         int initialValue = getTwoDigitNumber();
         int addNumber = getSingleDigitNumber();
         int currentNumber = initialValue;
@@ -24,7 +26,7 @@ public class Progression {
         String rightAnswer = "";
         StringBuilder progression = new StringBuilder(initialValue);
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < invalidValue; j++) {
             currentNumber += addNumber;
 
             if (j != numberToSkip) {
@@ -42,7 +44,10 @@ public class Progression {
     }
 
     public static String[][] getGamePack() {
-        String[][] gamePack = new String[3][2];
+        int countOfRounds = 3;
+        int countOfVariables = 2;
+
+        String[][] gamePack = new String[countOfRounds][countOfVariables];
         int length = gamePack.length;
 
         for (int i = 0; i < length; i++) {
