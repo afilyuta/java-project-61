@@ -23,7 +23,10 @@ public class Even {
     }
 
     public static String[][] getGamePack() {
-        String[][] gamePack = new String[3][2];
+        int countOfRounds = 3;
+        int countOfVariables = 2;
+
+        String[][] gamePack = new String[countOfRounds][countOfVariables];
         int length = gamePack.length;
 
         for (int i = 0; i < length; i++) {
