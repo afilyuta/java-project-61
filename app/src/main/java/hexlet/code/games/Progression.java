@@ -16,6 +16,7 @@ public class Progression {
 
     public static String[] getRoundPack() {
         int numberToSkip = getSingleDigitNumber();
+        numberToSkip = numberToSkip == 10 ? 9 : numberToSkip;
         int initialValue = getTwoDigitNumber();
         int addNumber = getSingleDigitNumber();
         int currentNumber = initialValue;
@@ -23,7 +24,7 @@ public class Progression {
         String rightAnswer = "";
         StringBuilder progression = new StringBuilder(initialValue);
 
-        for (int j = 1; j < 10; j++) {
+        for (int j = 0; j < 10; j++) {
             currentNumber += addNumber;
 
             if (j != numberToSkip) {
@@ -31,7 +32,7 @@ public class Progression {
                 progression.append(currentNumber);
             } else {
                 progression.append(" ..");
-                rightAnswer = "" + currentNumber;
+                rightAnswer = String.valueOf(currentNumber);
             }
         }
 
