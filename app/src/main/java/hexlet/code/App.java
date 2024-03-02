@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static hexlet.code.Cli.greetingUser;
 import static hexlet.code.games.Even.even;
 import static hexlet.code.games.Calc.calc;
-import static hexlet.code.games.GCD.gsd;
+import static hexlet.code.games.GCD.gcd;
 import static hexlet.code.games.Progression.progression;
 import static hexlet.code.games.Prime.prime;
 
@@ -26,29 +26,33 @@ public class App {
         );
 
         System.out.print("Your choice: ");
-        int gameNumber = scanner.nextInt();
+        chooseGame(scanner);
+    }
 
-        switch (gameNumber) {
-            case 1:
-                greetingUser();
-                break;
-            case 2:
-                even();
-                break;
-            case 3:
-                calc();
-                break;
-            case 4:
-                gsd();
-                break;
-            case 5:
-                progression();
-                break;
-            case 6:
-                prime();
-                break;
-            default:
-                System.exit(0);
+    private static void chooseGame(Scanner scanner) {
+        int playerChoice = scanner.nextInt();
+
+        int greet = 1;
+        int even = 2;
+        int calc = 3;
+        int gcd = 4;
+        int progression = 5;
+        int prime = 6;
+
+        if (playerChoice == greet) {
+            greetingUser();
+        } else if (playerChoice == even) {
+            even();
+        } else if (playerChoice == calc) {
+            calc();
+        } else if (playerChoice == gcd) {
+            gcd();
+        } else if (playerChoice == progression) {
+            progression();
+        } else if (playerChoice == prime) {
+            prime();
         }
+
+        System.exit(0);
     }
 }
