@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Cli.greetingUser;
+import static hexlet.code.Cli.getUserName;
 
 public class Engine {
 
@@ -13,6 +14,7 @@ public class Engine {
 
     public static void runGame(String[][] gamePack) {
         Scanner scanner = new Scanner(System.in);
+        String userName = getUserName();
 
         for (String[] part : gamePack) {
             String expression = part[0];
@@ -26,19 +28,21 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.", answer, rightAnswer);
-                System.out.printf("Let's try again, %s!\n", Cli.userName);
+                System.out.printf("Let's try again, %s!\n", userName);
                 System.exit(0);
             }
         }
 
-        System.out.printf("Congratulations, %s!\n", Cli.userName);
+        System.out.printf("Congratulations, %s!\n", userName);
     }
 
     public static int getSingleDigitNumber() {
-        return (int) (Math.random() * 10 + 1);
+        int singleDigitConverter = 10;
+        return (int) (Math.random() * singleDigitConverter + 1);
     }
 
     public static int getTwoDigitNumber() {
-        return (int) (Math.random() * 100 + 1);
+        int twoDigitConverter = 100;
+        return (int) (Math.random() * twoDigitConverter + 1);
     }
 }
