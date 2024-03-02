@@ -15,14 +15,18 @@ public class Prime {
     public static String[] getRoundPack() {
         int number = getTwoDigitNumber();
         int sqrtOfNumber = (int) Math.sqrt(number);
-        int counter = 0;
-
-        for (int i = 2; i <= sqrtOfNumber; ++i) {
-            counter = number % i == 0 ? ++counter : counter;
-        }
 
         String expression = "" + number;
-        String rightAnswer = counter == 0 ? "yes" : "no";
+        String rightAnswer = "";
+
+        for (int i = 2; i <= sqrtOfNumber; ++i) {
+            if (number % i == 0) {
+                rightAnswer = "no";
+                return new String[] {expression, rightAnswer};
+            }
+
+            rightAnswer = "yes";
+        }
 
         return new String[] {expression, rightAnswer};
     }
@@ -39,9 +43,5 @@ public class Prime {
         }
 
         return gamePack;
-    }
-
-    public static void main(String[] args) {
-        prime();
     }
 }
