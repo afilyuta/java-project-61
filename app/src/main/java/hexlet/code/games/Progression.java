@@ -1,59 +1,49 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.getGreetingAndRules;
-import static hexlet.code.Engine.runGame;
-import static hexlet.code.Engine.getSingleDigitNumber;
-import static hexlet.code.Engine.getTwoDigitNumber;
+import static hexlet.code.Engine.startGame;
+import static hexlet.code.Utils.generateRandomInt;
 
 public class Progression {
 
-    public static void progression() {
-        getGreetingAndRules("What number is missing in the progression?");
+    private static final int COUNT_OF_QUESTIONS = 3;
+    private static final int COUNT_OF_ELEMENTS_IN_PROGRESSION = 10;
 
-        String[][] gamePack = getGamePack();
-        runGame(gamePack);
+    public static void runProgressionGame() {
+        String[][] questionsAndAnswers = getQuestionsAndAnswers();
+        startGame("What number is missing in the progression?", questionsAndAnswers);
     }
 
-    public static String[] getRoundPack() {
-        int numberToSkip = getSingleDigitNumber();
-        int invalidValue = 10;
-        numberToSkip = numberToSkip == invalidValue ? invalidValue - 1 : numberToSkip;
+    public static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
-        int initialValue = getTwoDigitNumber();
-        int addNumber = getSingleDigitNumber();
-        int currentNumber = initialValue;
+        for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
+            int numberToSkip = generateRandomInt(1, 10);
 
-        String rightAnswer = "";
-        StringBuilder progression = new StringBuilder(initialValue);
+            int initialValue = generateRandomInt(99);
+            int addNumber = generateRandomInt(1, 10);
+            int currentNumber = initialValue;
 
-        for (int j = 0; j < invalidValue; j++) {
-            currentNumber += addNumber;
+            String answer = "";
+            StringBuilder progression = new StringBuilder(initialValue);
 
-            if (j != numberToSkip) {
-                progression.append(" ");
-                progression.append(currentNumber);
-            } else {
-                progression.append(" ..");
-                rightAnswer = String.valueOf(currentNumber);
+            for (int j = 0; j < COUNT_OF_ELEMENTS_IN_PROGRESSION; j++) {
+                currentNumber += addNumber;
+
+                if (j != numberToSkip) {
+                    progression.append(" ");
+                    progression.append(currentNumber);
+                } else {
+                    progression.append(" ..");
+                    answer = String.valueOf(currentNumber);
+                }
             }
+
+            String question = progression.toString().trim();
+
+            questionsAndAnswers[0][i] = question;
+            questionsAndAnswers[1][i] = answer;
         }
 
-        String expression = progression.toString().trim();
-
-        return new String[]{expression, rightAnswer};
-    }
-
-    public static String[][] getGamePack() {
-        int countOfRounds = 3;
-        int countOfVariables = 2;
-
-        String[][] gamePack = new String[countOfRounds][countOfVariables];
-        int length = gamePack.length;
-
-        for (int i = 0; i < length; i++) {
-            gamePack[i] = getRoundPack();
-        }
-
-        return gamePack;
+        return questionsAndAnswers;
     }
 }
