@@ -6,6 +6,7 @@ import static hexlet.code.Utils.generateRandomInt;
 public class GCD {
 
     private static final int COUNT_OF_QUESTIONS = 3;
+    private static final int TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY = 99;
 
     public static void runGcdGame() {
         String[][] questionsAndAnswers = getQuestionsAndAnswers();
@@ -16,8 +17,8 @@ public class GCD {
         String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
         for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
-            int a = generateRandomInt(99);
-            int b = generateRandomInt(99);
+            int a = generateRandomInt(TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY);
+            int b = generateRandomInt(TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY);
 
             String question = a + " " + b;
 
