@@ -7,6 +7,8 @@ public class Progression {
 
     private static final int COUNT_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ELEMENTS_IN_PROGRESSION = 10;
+    private static final int TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY = 99;
+    private static final int SINGLE_DIGIT_NUMBER_GENERATOR_BOUNDARY = 9;
 
     public static void runProgressionGame() {
         String[][] questionsAndAnswers = getQuestionsAndAnswers();
@@ -17,10 +19,10 @@ public class Progression {
         String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
         for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
-            int numberToSkip = generateRandomInt(1, 9);
+            int numberToSkip = generateRandomInt(1, SINGLE_DIGIT_NUMBER_GENERATOR_BOUNDARY);
 
-            int initialValue = generateRandomInt(1, 99);
-            int addNumber = generateRandomInt(1, 10);
+            int initialValue = generateRandomInt(1, TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY);
+            int addNumber = generateRandomInt(1, SINGLE_DIGIT_NUMBER_GENERATOR_BOUNDARY);
             int currentNumber = initialValue;
 
             String answer = "";
