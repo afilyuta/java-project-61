@@ -17,7 +17,7 @@ public class Progression {
         String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
         for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
-            int numberToSkip = generateRandomInt(1, 10);
+            int numberToSkip = generateRandomInt(1, 9);
 
             int initialValue = generateRandomInt(1, 99);
             int addNumber = generateRandomInt(1, 10);
@@ -26,7 +26,7 @@ public class Progression {
             String answer = "";
             StringBuilder progression = new StringBuilder(initialValue);
 
-            for (int j = 1; j < COUNT_OF_ELEMENTS_IN_PROGRESSION; j++) {
+            for (int j = 0; j < COUNT_OF_ELEMENTS_IN_PROGRESSION; j++) {
                 currentNumber += addNumber;
 
                 if (j != numberToSkip) {
@@ -45,5 +45,9 @@ public class Progression {
         }
 
         return questionsAndAnswers;
+    }
+
+    public static void main(String[] args) {
+        runProgressionGame();
     }
 }
