@@ -6,6 +6,8 @@ import static hexlet.code.Utils.generateRandomInt;
 public class Calc {
 
     private static final int COUNT_OF_QUESTIONS = 3;
+    private static final int TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY = 99;
+    private static final int SINGLE_DIGIT_NUMBER_GENERATOR_BOUNDARY = 9;
 
     public static void runCalcGame() {
         String[][] questionsAndAnswers = getQuestionsAndAnswers();
@@ -19,8 +21,8 @@ public class Calc {
             String[] signs = {"+", "-", "*"};
             int randomIndex = generateRandomInt(0, signs.length - 1);
 
-            int a = generateRandomInt(1, 99);
-            int b = generateRandomInt(1, 10);
+            int a = generateRandomInt(1, TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY);
+            int b = generateRandomInt(1, SINGLE_DIGIT_NUMBER_GENERATOR_BOUNDARY);
 
             String question = a + " " + signs[randomIndex] + " " + b;
             String answer = getAnswer(a, b, randomIndex);
