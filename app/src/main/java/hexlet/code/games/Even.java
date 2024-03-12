@@ -1,38 +1,30 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.getGreetingAndRules;
-import static hexlet.code.Engine.runGame;
-import static hexlet.code.Engine.getTwoDigitNumber;
+import static hexlet.code.Engine.startGame;
+import static hexlet.code.Utils.generateRandomInt;
 
 public class Even {
 
-    public static void even() {
-        getGreetingAndRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    private static final int COUNT_OF_QUESTIONS = 3;
 
-        String[][] gamePack = getGamePack();
-        runGame(gamePack);
+    public static void runEvenGame() {
+        String[][] questionsAndAnswers = getQuestionsAndAnswers();
+        startGame("Answer 'yes' if the number is even, otherwise answer 'no'.", questionsAndAnswers);
     }
 
-    public static String[] getRoundPack() {
-        int a = getTwoDigitNumber();
+    public static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
-        String expression = "" + a;
-        String rightAnswer = Integer.parseInt(expression) % 2 == 0 ? "yes" : "no";
+        for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
+            int a = generateRandomInt(1,99);
 
-        return new String[]{expression, rightAnswer};
-    }
+            String question = "" + a;
+            String answer = Integer.parseInt(question) % 2 == 0 ? "yes" : "no";
 
-    public static String[][] getGamePack() {
-        int countOfRounds = 3;
-        int countOfVariables = 2;
-
-        String[][] gamePack = new String[countOfRounds][countOfVariables];
-        int length = gamePack.length;
-
-        for (int i = 0; i < length; i++) {
-            gamePack[i] = getRoundPack();
+            questionsAndAnswers[0][i] = question;
+            questionsAndAnswers[1][i] = answer;
         }
 
-        return gamePack;
+        return questionsAndAnswers;
     }
 }
