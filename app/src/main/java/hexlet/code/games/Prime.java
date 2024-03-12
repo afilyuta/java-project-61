@@ -1,47 +1,41 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.getGreetingAndRules;
-import static hexlet.code.Engine.runGame;
-import static hexlet.code.Engine.getTwoDigitNumber;
+import static hexlet.code.Engine.startGame;
+import static hexlet.code.Utils.generateRandomInt;
 
 public class Prime {
-    public static void prime() {
-        getGreetingAndRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        String[][] gamePack = getGamePack();
-        runGame(gamePack);
+    private static final int COUNT_OF_QUESTIONS = 3;
+
+    public static void runPrimeGame() {
+        String[][] questionsAndAnswers = getQuestionsAndAnswers();
+        startGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", questionsAndAnswers);
     }
 
-    public static String[] getRoundPack() {
-        int number = getTwoDigitNumber();
-        int sqrtOfNumber = (int) Math.sqrt(number);
+    public static String[][] getQuestionsAndAnswers() {
 
-        String expression = "" + number;
-        String rightAnswer = "";
+        String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
-        for (int i = 2; i <= sqrtOfNumber; ++i) {
-            if (number % i == 0) {
-                rightAnswer = "no";
-                return new String[] {expression, rightAnswer};
+        for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
+            int number = generateRandomInt(99);
+            int sqrtOfNumber = (int) Math.sqrt(number);
+
+            String question = "" + number;
+            String answer = "";
+
+            for (int j = 2; j <= sqrtOfNumber; ++j) {
+                if (number % j == 0) {
+                    answer = "no";
+                    break;
+                } else {
+                    answer = "yes";
+                }
             }
 
-            rightAnswer = "yes";
+            questionsAndAnswers[0][i] = question;
+            questionsAndAnswers[1][i] = answer;
         }
 
-        return new String[] {expression, rightAnswer};
-    }
-
-    public static String[][] getGamePack() {
-        int countOfRounds = 3;
-        int countOfVariables = 2;
-
-        String[][] gamePack = new String[countOfRounds][countOfVariables];
-        int length = gamePack.length;
-
-        for (int i = 0; i < length; i++) {
-            gamePack[i] = getRoundPack();
-        }
-
-        return gamePack;
+        return questionsAndAnswers;
     }
 }
