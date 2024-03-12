@@ -7,18 +7,19 @@ import static hexlet.code.Cli.getUserName;
 
 public class Engine {
 
-    public static void getGreetingAndRules(String rules) {
-        greetingUser();
-        System.out.println(rules);
-    }
+    private static final int COUNT_OF_ROUNDS = 3;
 
-    public static void runGame(String[][] gamePack) {
+    public static void startGame(String rules, String[][] questionsAndAnswers) {
+        greetingUser();
+
+        System.out.println(rules);
+
         Scanner scanner = new Scanner(System.in);
         String userName = getUserName();
 
-        for (String[] part : gamePack) {
-            String expression = part[0];
-            String rightAnswer = part[1];
+        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
+            String expression = questionsAndAnswers[0][i];
+            String rightAnswer = questionsAndAnswers[1][i];
 
             System.out.println("Question: " + expression);
             System.out.print("Your answer: ");
