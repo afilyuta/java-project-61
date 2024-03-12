@@ -1,59 +1,45 @@
 package hexlet.code.games;
 
-import static hexlet.code.Engine.getGreetingAndRules;
-import static hexlet.code.Engine.runGame;
-import static hexlet.code.Engine.getSingleDigitNumber;
-import static hexlet.code.Engine.getTwoDigitNumber;
+import static hexlet.code.Engine.startGame;
+import static hexlet.code.Utils.generateRandomInt;
 
 public class Calc {
 
-    public static void calc() {
-        getGreetingAndRules("What is the result of the expression?");
-        String[][] gamePack = getGamePack();
-        runGame(gamePack);
+    private static final int COUNT_OF_QUESTIONS = 3;
+
+    public static void runCalcGame() {
+        String[][] questionsAndAnswers = getQuestionsAndAnswers();
+        startGame("What is the result of the expression?", questionsAndAnswers);
     }
 
-    public static String[] getRoundPack() {
-        int a = getTwoDigitNumber();
-        int b = getSingleDigitNumber();
-        int c = getSingleDigitNumber();
+    public static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
-        String sign;
-        int intRightAnswer;
+        for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
+            String[] signs = {"+", "-", "*"};
+            int randomIndex = generateRandomInt(0, signs.length - 1);
 
-        int addCaseOne = 1;
-        int addCaseTwo = 4;
-        int addCaseThree = 7;
+            int a = generateRandomInt(1, 99);
+            int b = generateRandomInt(1, 10);
 
-        int subCaseOne = 2;
-        int subCaseTwo = 5;
-        int subCaseThree = 8;
+            String question = a + " " + signs[randomIndex] + " " + b;
+            String answer = getAnswer(a, b, randomIndex);
 
-        if (c == addCaseOne || c == addCaseTwo || c == addCaseThree) {
-            sign = "+";
-            intRightAnswer = a + b;
-        } else if (c == subCaseOne || c == subCaseTwo || c == subCaseThree) {
-            sign = "-";
-            intRightAnswer = a - b;
-        } else {
-            sign = "*";
-            intRightAnswer = a * b;
+            questionsAndAnswers[0][i] = question;
+            questionsAndAnswers[1][i] = answer;
         }
 
-        String expression = a + " " + sign + " " + b;
-        String rightAnswer = "" + intRightAnswer;
-
-        return new String[]{expression, rightAnswer};
+        return questionsAndAnswers;
     }
 
-    public static String[][] getGamePack() {
-        String[][] gamePack = new String[3][2];
-        int length = gamePack.length;
+    public static String getAnswer(int a, int b, int randomIndex) {
+        int answer = switch (randomIndex) {
+            case 0 -> a + b;
+            case 1 -> a - b;
+            case 2 -> a * b;
+            default -> throw new IllegalStateException("Unexpected value: " + randomIndex);
+        };
 
-        for (int i = 0; i < length; i++) {
-            gamePack[i] = getRoundPack();
-        }
-
-        return gamePack;
+        return String.valueOf(answer);
     }
 }
