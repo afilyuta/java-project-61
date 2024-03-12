@@ -6,6 +6,7 @@ import static hexlet.code.Utils.generateRandomInt;
 public class Prime {
 
     private static final int COUNT_OF_QUESTIONS = 3;
+    private static final int TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY = 99;
 
     public static void runPrimeGame() {
         String[][] questionsAndAnswers = getQuestionsAndAnswers();
@@ -17,7 +18,7 @@ public class Prime {
         String[][] questionsAndAnswers = new String[2][COUNT_OF_QUESTIONS];
 
         for (int i = 0; i < COUNT_OF_QUESTIONS; i++) {
-            int number = generateRandomInt(99);
+            int number = generateRandomInt(TWO_DIGIT_NUMBER_GENERATOR_BOUNDARY);
             int sqrtOfNumber = (int) Math.sqrt(number);
 
             String question = "" + number;
