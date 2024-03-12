@@ -36,14 +36,4 @@ public class Engine {
 
         System.out.printf("Congratulations, %s!\n", userName);
     }
-
-    public static int getSingleDigitNumber() {
-        int singleDigitConverter = 10;
-        return (int) (Math.random() * singleDigitConverter + 1);
-    }
-
-    public static int getTwoDigitNumber() {
-        int twoDigitConverter = 100;
-        return (int) (Math.random() * twoDigitConverter + 1);
-    }
 }
